@@ -54,7 +54,7 @@ int main()
 	ft_impadd(&list,ft_impnew("test6", addtolist));
 	ft_putendl("#####################BEFORE###################");
 	printlist(list);
-	list = sortlist(list, ft_impsize(list));
+	list = sortlist(list, ft_impsize(list), comprassion);
 	ft_putendl("#####################AFTER###################");
 	printlist(list);
 	while (list)

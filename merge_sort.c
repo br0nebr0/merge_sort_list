@@ -76,7 +76,7 @@ t_imp *mergelist(t_imp *lst1, t_imp *lst2, int (*compr)(void *, void *))
 	return (lst);
 }
 /*recursive func for sorting list*/
-t_imp *sortlist(t_imp *lst, int cnt)
+t_imp *sortlist(t_imp *lst, int cnt,int (*compr)(void *, void *))
 {
 	t_imp	*l_lst;
 	t_imp	*r_lst;
@@ -88,8 +88,8 @@ t_imp *sortlist(t_imp *lst, int cnt)
 		return(n_lst);
 	}
 	splitlist(lst, &l_lst, &r_lst);
-	l_lst = sortlist(l_lst, ft_impsize(l_lst));
-	r_lst = sortlist(r_lst, ft_impsize(r_lst));
-	n_lst = mergelist(l_lst, r_lst, comprassion);
+	l_lst = sortlist(l_lst, ft_impsize(l_lst), compr);
+	r_lst = sortlist(r_lst, ft_impsize(r_lst), compr);
+	n_lst = mergelist(l_lst, r_lst, compr);
 	return (n_lst);
 }
